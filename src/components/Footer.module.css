@@ -1,0 +1,8 @@
+.footer{
+  height: 250px;
+  display: flex; /*para os itens ganhar a propriedade flex*/
+  flex-direction: column; /* os itens na vertical um abaixo do outro*/
+  align-items: center; /* alinhar os itens ao centro */  
+  justify-content: center; /* alinhar o conteúdo tanto na vertical como horizontalmente ao centro*/
+  background-color: #edf3f6;
+}

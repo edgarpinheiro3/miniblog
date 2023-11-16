@@ -37,13 +37,14 @@ nav button:hover {
 
 form {
   max-width: 40%;
+  margin: 0 auto;
 }
 
 label { 
   /* faz com que o label e os inputs fiquem um abaixo do outro*/
   display: flex;
   flex-direction: column;
-  margin-bottom: 1px;
+  margin-bottom: 1em;
 }
 
 label span {
@@ -60,7 +61,7 @@ input, textarea {
   background-color: transparent;
 }
 
-btn {
+.btn {
   background-color: #1a8918;
   color: #fff;
   text-align: center;

@@ -34,7 +34,7 @@ const Navbar = () => {
         {user &&(
           <> {/* para ter dois elementos pais */}
           <li>
-            <NavLink to="/posts/create" className={({isActive}) => (isActive ? styles.active : "")}>Novo post</NavLink>
+            <NavLink to="/post/create" className={({isActive}) => (isActive ? styles.active : "")}>Novo post</NavLink>
           </li>
           <li>
             <NavLink to="/dashboard" className={({isActive}) => (isActive ? styles.active : "")}>Dashboard</NavLink>

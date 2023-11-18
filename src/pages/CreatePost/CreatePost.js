@@ -15,28 +15,41 @@ const CreatePost = () => {
 
   const {user} = useAuthValue(); // pega os dados do usuário
 
+  const navigate = useNavigate();
+
   const {insertDocument, response} = useInsertDocument("posts"); //"posts" colection que quer criar no banco
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     //validate image URL
+    try {
+      new URL(image)
+    } catch (error) {
+      setFormError("A imagem precisa ser uma URL.");
+    }
 
     //criar o array de tags
+    const tagsArray = tags.split(",").map((tag) => tag.trim().toLowerCase());
 
     //checar todos os valores
+    if(!title || !image || !tags || !body) {
+      setFormError("Por favor, preencha todos os campos!")
+    }
+
+    if (formError) return;
 
     insertDocument({
       title,
       image,
       body, 
-      tags,
+      tagsArray,
       uid: user.uid,
       createBy: user.displayName
     });
 
     // redirect home page
-
+    navigate("/");
 
   };
 

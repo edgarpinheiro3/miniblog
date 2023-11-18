@@ -3,6 +3,7 @@ import styles from "./CreatePost.module.css";
 import { useState } from "react"; //para salvar no banco
 import { useNavigate } from "react-router-dom"; // redirecionar após salvar
 import { useAuthValue } from "../../context/AuthContext"; //pegar o usuário e atrelar no post
+import { useInsertDocument } from "../../hooks/useinsertDocument";
 
 const CreatePost = () => {
 
@@ -12,8 +13,31 @@ const CreatePost = () => {
   const [tags, setTags] = useState([]);
   const [formError, setFormError] = useState("");
 
+  const {user} = useAuthValue(); // pega os dados do usuário
+
+  const {insertDocument, response} = useInsertDocument("posts"); //"posts" colection que quer criar no banco
+
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    //validate image URL
+
+    //criar o array de tags
+
+    //checar todos os valores
+
+    insertDocument({
+      title,
+      image,
+      body, 
+      tags,
+      uid: user.uid,
+      createBy: user.displayName
+    });
+
+    // redirect home page
+
+
   };
 
   return (
@@ -65,7 +89,15 @@ const CreatePost = () => {
             value={tags}
           />
         </label>
-        <button className="btn">Cadastrar</button>
+        {!response.loading && <button className="btn">Criar post!</button>}
+        {response.loading && (
+          <button className="btn" disabled>
+            Aguarde.. .
+          </button>
+        )}
+        {(response.error || formError) && (
+          <p className="error">{response.error || formError}</p>
+        )}
       </form>
     </div>
   )

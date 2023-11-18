@@ -7,7 +7,7 @@ const initialState = {
   error: null,
 };
 
-const insertReducer = (state, action) => {
+const insertReducer = (state, action) => { //preenche o response
   switch (action.type) {
     case "LOADING":
       return { loading: true, error: null };

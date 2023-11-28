@@ -2,8 +2,8 @@
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: center; /*centralizar na horizontal*/
+  align-items: center; /*centralizar na vertical*/
 }
 
 .dashboard h2 {
@@ -30,7 +30,7 @@
 
 .post_header {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /*título de um lado e ações do outro*/
   font-weight: bold;
   border-bottom: 2px solid #ccc;
   width: 80%;
